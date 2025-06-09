@@ -28,18 +28,22 @@
             Embark on an extraordinary journey through mystical landscapes and challenging obstacles
         </div>
 
-        <div class="aspect-w-16 aspect-h-9 mb-8 rounded-lg overflow-hidden shadow-xl">
+        <div class="aspect-w-16 aspect-h-9 mb-8 rounded-lg overflow-hidden shadow-xl relative">
+            <div id="loading" class="absolute inset-0 flex items-center justify-center bg-gray-100">
+                <div class="text-[#007AFF] text-xl">Loading game...</div>
+            </div>
             <iframe 
-                src="https://www.miniplay.com/embed/cat-mario"
+                src="https://www.miniplay.com/embed/table-tennis-open"
                 class="w-full h-full"
                 allowfullscreen
-                loading="lazy">
+                loading="lazy"
+                onload="document.getElementById('loading').style.display='none'">
             </iframe>
         </div>
 
         <div class="text-center mb-8">
-            <a href="https://www.miniplay.com/game/cat-mario" target="_blank" class="inline-block bg-[#007AFF] text-white px-8 py-4 rounded-lg text-xl font-semibold hover:bg-blue-600 transition-colors">
-                开始游戏
+            <a href="https://www.miniplay.com/game/table-tennis-open" target="_blank" class="inline-block bg-[#007AFF] text-white px-8 py-4 rounded-lg text-xl font-semibold hover:bg-blue-600 transition-colors">
+                Play Now
             </a>
         </div>
 
@@ -47,28 +51,28 @@
             <div class="bg-white p-6 rounded-lg shadow-md">
                 <h2 class="text-2xl font-semibold mb-4 text-[#007AFF]">Game Features</h2>
                 <ul class="space-y-2 text-[#8E8E93]">
-                    <li>• Stunning visual graphics and immersive gameplay</li>
-                    <li>• Multiple challenging levels to test your skills</li>
-                    <li>• Unique character progression system</li>
-                    <li>• Original soundtrack and sound effects</li>
+                    <li>• Realistic table tennis physics</li>
+                    <li>• Multiple game modes</li>
+                    <li>• Various difficulty levels</li>
+                    <li>• Smooth controls and animations</li>
                 </ul>
             </div>
 
             <div class="bg-white p-6 rounded-lg shadow-md">
                 <h2 class="text-2xl font-semibold mb-4 text-[#007AFF]">How to Play</h2>
                 <ul class="space-y-2 text-[#8E8E93]">
-                    <li>• Use arrow keys or WASD for movement</li>
-                    <li>• Space bar to jump and double jump</li>
-                    <li>• Collect power-ups to enhance abilities</li>
-                    <li>• Avoid obstacles and defeat enemies</li>
+                    <li>• Use mouse to aim and click to hit</li>
+                    <li>• Time your shots carefully</li>
+                    <li>• Watch for spin and power</li>
+                    <li>• Master different techniques</li>
                 </ul>
             </div>
         </div>
 
         <div class="bg-white p-8 rounded-lg shadow-md mb-12">
-            <h2 class="text-2xl font-semibold mb-4 text-[#007AFF]">About Celeste Strongers</h2>
+            <h2 class="text-2xl font-semibold mb-4 text-[#007AFF]">About Table Tennis Open</h2>
             <p class="text-[#8E8E93] leading-relaxed">
-                Celeste Strongers is an engaging platformer that combines precise controls with beautiful artistry. Players guide their character through intricately designed levels filled with challenges, secrets, and memorable moments. The game features a compelling narrative that unfolds as you progress, making each achievement feel meaningful and rewarding.
+                Table Tennis Open is an exciting sports game that brings the thrill of table tennis to your browser. With realistic physics and smooth controls, you can experience the fast-paced action of this popular sport. Challenge yourself with different difficulty levels and master various techniques to become a table tennis champion!
             </p>
         </div>
     </div>
