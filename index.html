@@ -3,78 +3,498 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Celeste Strongers - Epic Adventure Game | Celeste-Brianna-Helen.com</title>
-    <link rel="canonical" href="https://celeste-brianna-helen.com/celeste-strongers" />
-    <meta name="description" content="Play Celeste Strongers - An epic adventure platformer game with challenging levels and beautiful graphics. Experience the journey now!">
+    <title>Play Games | Celeste-Brianna - Premium Gaming Experience</title>
+    <meta name="description" content="Play top-rated browser games on Celeste-Brianna, including Space Waves and other exciting titles. Free online gaming for all devices." />
+    <meta name="keywords" content="play games online, free games, Space Waves, browser games, celeste-brianna games" />
+    <link rel="canonical" href="https://celeste-brianna-helen.com/games.html" />
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        :root {
-            --apple-blue: #007AFF;
-            --apple-gray: #8E8E93;
-            --apple-green: #34C759;
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neon-pink': '#ff2a6d',
+                        'neon-blue': '#05d9e8',
+                        'neon-purple': '#d300c5',
+                        'neon-green': '#01ffc3',
+                        'dark-bg': '#0f0e17',
+                        'dark-secondary': '#1a1a2e'
+                    },
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'sans-serif'],
+                        'rajdhani': ['Rajdhani', 'sans-serif']
+                    }
+                }
+            }
         }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow-neon-pink {
+                text-shadow: 0 0 5px #ff2a6d, 0 0 10px #ff2a6d, 0 0 20px #ff2a6d;
+            }
+            .text-shadow-neon-blue {
+                text-shadow: 0 0 5px #05d9e8, 0 0 10px #05d9e8, 0 0 20px #05d9e8;
+            }
+            .glow-neon-pink {
+                box-shadow: 0 0 5px #ff2a6d, 0 0 10px #ff2a6d;
+            }
+            .glow-neon-blue {
+                box-shadow: 0 0 5px #05d9e8, 0 0 10px #05d9e8;
+            }
+            .border-glow {
+                border: 1px solid rgba(5, 217, 232, 0.5);
+                box-shadow: 0 0 10px rgba(5, 217, 232, 0.5);
+            }
+            .bg-grid {
+                background-image: 
+                    linear-gradient(rgba(5, 217, 232, 0.1) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(5, 217, 232, 0.1) 1px, transparent 1px);
+                background-size: 20px 20px;
+            }
+            .game-frame {
+                aspect-ratio: 16/9;
+            }
+        }
+    </style>
+    
+    <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Rajdhani', sans-serif;
+            background-color: #0f0e17;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+        /* Animation */
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+        
+        .animate-pulse-slow {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px rgba(5, 217, 232, 0.5), 0 0 10px rgba(5, 217, 232, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(5, 217, 232, 0.8), 0 0 30px rgba(5, 217, 232, 0.6); }
+            100% { box-shadow: 0 0 5px rgba(5, 217, 232, 0.5), 0 0 10px rgba(5, 217, 232, 0.3); }
+        }
+        
+        .animate-glow {
+            animation: glow 2s ease-in-out infinite;
+        }
+        
+        /* Hover effects */
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Game iframe styling */
+        .game-iframe {
+            transition: opacity 0.5s ease;
+        }
+        
+        /* Mobile menu styling */
+        .mobile-menu {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        
+        /* Scroll to top button */
+        .scroll-top {
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .game-container {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-50">
-    <div class="max-w-6xl mx-auto px-4 py-8">
-        <h1 class="text-4xl md:text-5xl font-bold text-center mb-6 text-[#007AFF]">
-            Celeste Strongers
-        </h1>
-        
-        <div class="text-xl text-center mb-8 text-[#8E8E93]">
-            Embark on an extraordinary journey through mystical landscapes and challenging obstacles
-        </div>
-
-        <div class="aspect-w-16 aspect-h-9 mb-8 rounded-lg overflow-hidden shadow-xl relative">
-            <div id="loading" class="absolute inset-0 flex items-center justify-center bg-gray-100">
-                <div class="text-[#007AFF] text-xl">Loading game...</div>
+<body class="text-white bg-dark-bg">
+    <!-- Navigation -->
+    <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center bg-dark-bg/80 backdrop-blur-md border-b border-neon-blue/30">
+            <a href="#" class="flex items-center space-x-2">
+                <div class="w-10 h-10 rounded-full bg-neon-blue flex items-center justify-center">
+                    <i class="fa fa-gamepad text-dark-bg text-xl"></i>
+                </div>
+                <span class="text-2xl font-orbitron font-bold text-neon-blue">Celeste-Brianna</span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#" class="text-white hover:text-neon-blue transition-colors font-medium">Home</a>
+                <a href="#games" class="text-white hover:text-neon-blue transition-colors font-medium">Games</a>
+                <a href="#how-to-play" class="text-white hover:text-neon-blue transition-colors font-medium">How to Play</a>
+                <a href="#faq" class="text-white hover:text-neon-blue transition-colors font-medium">FAQ</a>
+                <a href="#" class="bg-neon-blue text-dark-bg px-5 py-2 rounded-md font-orbitron font-semibold hover:bg-neon-blue/80 transition-colors">Sign Up</a>
             </div>
-            <iframe 
-                src="https://www.miniplay.com/embed/table-tennis-open"
-                class="w-full h-full"
-                allowfullscreen
-                loading="lazy"
-                onload="document.getElementById('loading').style.display='none'">
-            </iframe>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white text-2xl">
+                <i class="fa fa-bars"></i>
+            </button>
         </div>
-
-        <div class="text-center mb-8">
-            <a href="https://www.miniplay.com/game/table-tennis-open" target="_blank" class="inline-block bg-[#007AFF] text-white px-8 py-4 rounded-lg text-xl font-semibold hover:bg-blue-600 transition-colors">
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-[62px] right-0 w-3/4 h-screen bg-dark-secondary z-50 p-6 border-l border-neon-blue/30">
+            <div class="flex flex-col space-y-6 text-lg">
+                <a href="#" class="text-white hover:text-neon-blue transition-colors font-medium py-2">Home</a>
+                <a href="#games" class="text-white hover:text-neon-blue transition-colors font-medium py-2">Games</a>
+                <a href="#how-to-play" class="text-white hover:text-neon-blue transition-colors font-medium py-2">How to Play</a>
+                <a href="#faq" class="text-white hover:text-neon-blue transition-colors font-medium py-2">FAQ</a>
+                <a href="#" class="bg-neon-blue text-dark-bg px-5 py-3 rounded-md font-orbitron font-semibold hover:bg-neon-blue/80 transition-colors text-center">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center justify-center bg-grid overflow-hidden">
+        <!-- Background decorative elements -->
+        <div class="absolute inset-0">
+            <div class="absolute top-[20%] left-[10%] w-64 h-64 rounded-full bg-neon-purple/20 blur-3xl animate-pulse-slow"></div>
+            <div class="absolute bottom-[20%] right-[10%] w-80 h-80 rounded-full bg-neon-blue/20 blur-3xl animate-pulse-slow"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="text-[clamp(2.5rem,6vw,4rem)] font-orbitron font-bold mb-6">
+                <span class="text-white">Welcome to</span>
+                <span class="text-neon-blue text-shadow-neon-blue block">Celeste-Brianna</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-gray-300">Experience the ultimate gaming destination with premium titles, smooth gameplay, and endless entertainment.</p>
+            <a href="#games" class="inline-block bg-neon-blue text-dark-bg px-8 py-4 rounded-md font-orbitron font-semibold text-lg hover:bg-neon-blue/80 transition-colors animate-glow">
                 Play Now
             </a>
         </div>
-
-        <div class="grid md:grid-cols-2 gap-8 mb-12">
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h2 class="text-2xl font-semibold mb-4 text-[#007AFF]">Game Features</h2>
-                <ul class="space-y-2 text-[#8E8E93]">
-                    <li>• Realistic table tennis physics</li>
-                    <li>• Multiple game modes</li>
-                    <li>• Various difficulty levels</li>
-                    <li>• Smooth controls and animations</li>
-                </ul>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#games" class="text-neon-blue text-3xl">
+                <i class="fa fa-angle-down"></i>
+            </a>
+        </div>
+    </header>
+    
+    <!-- Main Game Section -->
+    <section id="games" class="py-20 bg-dark-bg relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,3rem)] font-orbitron font-bold mb-4 text-white">Premium Games</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">Discover our handpicked selection of top-tier games for the ultimate gaming experience.</p>
             </div>
-
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h2 class="text-2xl font-semibold mb-4 text-[#007AFF]">How to Play</h2>
-                <ul class="space-y-2 text-[#8E8E93]">
-                    <li>• Use mouse to aim and click to hit</li>
-                    <li>• Time your shots carefully</li>
-                    <li>• Watch for spin and power</li>
-                    <li>• Master different techniques</li>
-                </ul>
+            
+            <div class="game-container relative bg-dark-secondary rounded-lg p-4 md:p-6 border border-neon-blue/30 shadow-lg">
+                <div class="game-info mb-6">
+                    <h3 class="text-2xl md:text-3xl font-orbitron font-bold text-neon-blue mb-2">Space Waves</h3>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-1">
+                            <i class="fa fa-star text-yellow-400"></i>
+                            <i class="fa fa-star text-yellow-400"></i>
+                            <i class="fa fa-star text-yellow-400"></i>
+                            <i class="fa fa-star text-yellow-400"></i>
+                            <i class="fa fa-star-half-o text-yellow-400"></i>
+                            <span class="ml-2 text-white">4.5/5</span>
+                        </div>
+                        <span class="bg-neon-green/20 text-neon-green px-3 py-1 rounded-full text-sm">Arcade Shooter</span>
+                    </div>
+                </div>
+                
+                <div class="relative rounded-lg overflow-hidden game-frame bg-dark-bg border border-neon-blue/20">
+                    <!-- Game placeholder with play button -->
+                    <div id="game-content" class="w-full h-full flex flex-col items-center justify-center">
+                        <div class="text-center p-8">
+                            <!-- Custom game image -->
+                            <div class="w-full max-w-md mb-8">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%234a148c'/%3E%3Cpath d='M0,125 L50,50 L100,200 L150,50 L200,200 L250,50 L300,200 L350,50 L400,200 L400,250 L0,250 Z' fill='%23311b92'/%3E%3Cpath d='M0,175 L30,100 L130,100 L160,175 L130,175 L130,250 L0,250 Z' fill='%23ffeb3b' stroke='%23ffc107' stroke-width='2'/%3E%3Cpath d='M300,100 L350,80 L370,120 L330,140 L370,160 L350,200 L300,180 L290,140 L300,100 Z' fill='%23ffffff' stroke='%23b3e5fc' stroke-width='2'/%3E%3Cpath d='M0,0 L20,20 L40,0 L60,20 L80,0 L100,20 L120,0 L140,20 L160,0 L180,20 L200,0 L220,20 L240,0 L260,20 L280,0 L300,20 L320,0 L340,20 L360,0 L380,20 L400,0 L400,20 L380,40 L360,20 L340,40 L320,20 L300,40 L280,20 L260,40 L240,20 L220,40 L200,20 L180,40 L160,20 L140,40 L120,20 L100,40 L80,20 L60,40 L40,20 L20,40 L0,20 Z' fill='none' stroke='%23ffffff20' stroke-width='1'/%3E%3C/svg%3E" alt="Game Logo" class="w-full h-auto rounded-lg shadow-neon-blue">
+                            </div>
+                            <button id="play-game-btn" class="bg-neon-blue text-dark-bg px-8 py-3 rounded-md font-orbitron font-semibold hover:bg-neon-blue/80 transition-colors animate-glow">
+                                Start Game
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="bg-white p-8 rounded-lg shadow-md mb-12">
-            <h2 class="text-2xl font-semibold mb-4 text-[#007AFF]">About Table Tennis Open</h2>
-            <p class="text-[#8E8E93] leading-relaxed">
-                Table Tennis Open is an exciting sports game that brings the thrill of table tennis to your browser. With realistic physics and smooth controls, you can experience the fast-paced action of this popular sport. Challenge yourself with different difficulty levels and master various techniques to become a table tennis champion!
-            </p>
+    </section>
+    
+    <!-- How to Play Section -->
+    <section id="how-to-play" class="py-20 bg-dark-bg relative overflow-hidden">
+        <div class="absolute inset-0 bg-grid"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,3rem)] font-orbitron font-bold mb-4 text-white">How to Play</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">Follow these simple steps to start your gaming adventure.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-dark-secondary p-6 rounded-lg border border-neon-blue/30 hover:border-neon-blue/60 transition-colors">
+                    <div class="w-16 h-16 rounded-full bg-neon-blue/20 flex items-center justify-center mb-6">
+                        <i class="fa fa-gamepad text-neon-blue text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-orbitron font-semibold mb-3 text-white">1. Choose Your Game</h3>
+                    <p class="text-gray-400">Browse our collection of premium games and select the one that interests you the most.</p>
+                </div>
+                
+                <div class="bg-dark-secondary p-6 rounded-lg border border-neon-blue/30 hover:border-neon-blue/60 transition-colors">
+                    <div class="w-16 h-16 rounded-full bg-neon-blue/20 flex items-center justify-center mb-6">
+                        <i class="fa fa-download text-neon-blue text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-orbitron font-semibold mb-3 text-white">2. Click to Load</h3>
+                    <p class="text-gray-400">Hit the "Start Game" button and wait for the game to load completely.</p>
+                </div>
+                
+                <div class="bg-dark-secondary p-6 rounded-lg border border-neon-blue/30 hover:border-neon-blue/60 transition-colors">
+                    <div class="w-16 h-16 rounded-full bg-neon-blue/20 flex items-center justify-center mb-6">
+                        <i class="fa fa-play-circle text-neon-blue text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-orbitron font-semibold mb-3 text-white">3. Start Playing</h3>
+                    <p class="text-gray-400">Use keyboard controls (arrow keys and space bar) to control your spaceship and shoot enemies.</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-dark-bg">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,3rem)] font-orbitron font-bold mb-4 text-white">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">Find answers to the most common questions about our gaming platform.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-6">
+                <div class="bg-dark-secondary p-6 rounded-lg border border-neon-blue/30">
+                    <h3 class="text-xl font-orbitron font-semibold mb-2 text-white">Do I need to download anything to play?</h3>
+                    <p class="text-gray-400">No, all our games are browser-based and can be played directly without any downloads or installations.</p>
+                </div>
+                
+                <div class="bg-dark-secondary p-6 rounded-lg border border-neon-blue/30">
+                    <h3 class="text-xl font-orbitron font-semibold mb-2 text-white">Is it really free to play?</h3>
+                    <p class="text-gray-400">Yes! All our games are completely free to play with no hidden costs or subscription fees.</p>
+                </div>
+                
+                <div class="bg-dark-secondary p-6 rounded-lg border border-neon-blue/30">
+                    <h3 class="text-xl font-orbitron font-semibold mb-2 text-white">Can I play on mobile devices?</h3>
+                    <p class="text-gray-400">Yes, our games are optimized for mobile play. However, for the best experience, we recommend playing on a desktop browser with keyboard controls.</p>
+                </div>
+                
+                <div class="bg-dark-secondary p-6 rounded-lg border border-neon-blue/30">
+                    <h3 class="text-xl font-orbitron font-semibold mb-2 text-white">What browsers do you support?</h3>
+                    <p class="text-gray-400">We support all modern browsers including Chrome, Firefox, Safari, and Edge. For optimal performance, we recommend using the latest version of Chrome.</p>
+                </div>
+                
+                <div class="bg-dark-secondary p-6 rounded-lg border border-neon-blue/30">
+                    <h3 class="text-xl font-orbitron font-semibold mb-2 text-white">Why is the game taking so long to load?</h3>
+                    <p class="text-gray-400">Game loading time depends on your internet connection speed. If you're experiencing slow loading, try refreshing the page or checking your internet connection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-dark-secondary relative overflow-hidden">
+        <div class="absolute inset-0 bg-grid opacity-30"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-orbitron font-bold mb-4 text-white">Stay Updated</h2>
+                <p class="text-xl text-gray-300 mb-8">Subscribe to our newsletter to get the latest game releases and updates.</p>
+                
+                <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                    <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-3 rounded-md bg-dark-bg border border-neon-blue/30 text-white focus:outline-none focus:border-neon-blue transition-colors" required>
+                    <button type="submit" class="bg-neon-blue text-dark-bg px-6 py-3 rounded-md font-orbitron font-semibold hover:bg-neon-blue/80 transition-colors">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-dark-bg py-12 border-t border-neon-blue/30">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <a href="#" class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-neon-blue flex items-center justify-center">
+                            <i class="fa fa-gamepad text-dark-bg text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-orbitron font-bold text-neon-blue">Celeste-Brianna</span>
+                    </a>
+                    <p class="text-gray-400 mb-4">Your premium destination for online gaming experiences.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors text-xl">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors text-xl">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors text-xl">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors text-xl">
+                            <i class="fa fa-youtube-play"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-orbitron font-semibold mb-4 text-white">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">Home</a></li>
+                        <li><a href="#games" class="text-gray-400 hover:text-neon-blue transition-colors">Games</a></li>
+                        <li><a href="#how-to-play" class="text-gray-400 hover:text-neon-blue transition-colors">How to Play</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-neon-blue transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-orbitron font-semibold mb-4 text-white">Game Categories</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">Arcade Shooters</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">Puzzle Games</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">Strategy Games</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">Action Games</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-orbitron font-semibold mb-4 text-white">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">Help Center</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-neon-blue/30 pt-8 text-center text-gray-500">
+                <p>&copy; 2023 Celeste-Brianna. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scroll to Top Button -->
+    <button id="scroll-top" class="scroll-top fixed bottom-8 right-8 w-12 h-12 rounded-full bg-neon-blue flex items-center justify-center text-dark-bg text-xl z-50">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+    
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            // Toggle icon
+            const icon = mobileMenuBtn.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scroll-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('active');
+            } else {
+                scrollTopBtn.classList.remove('active');
+            }
+            
+            // Navbar background change on scroll
+            const navbar = document.getElementById('main-nav');
+            if (window.pageYOffset > 50) {
+                navbar.classList.add('bg-dark-bg/95');
+                navbar.classList.remove('bg-dark-bg/80');
+            } else {
+                navbar.classList.remove('bg-dark-bg/95');
+                navbar.classList.add('bg-dark-bg/80');
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                if (mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Game loading animation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add event listener to play game button
+            const playButton = document.getElementById('play-game-btn');
+            
+            playButton.addEventListener('click', function() {
+                // Open the game in a new tab
+                window.open('https://games.crazygames.com/en_US/space-waves/index.html?v=1.345', '_blank');
+                
+                // Or alternatively, navigate the current page to the game
+                // window.location.href = 'https://games.crazygames.com/en_US/space-waves/index.html?v=1.345';
+            });
+        });
+    </script>
 </body>
-</html> 
+</html>
